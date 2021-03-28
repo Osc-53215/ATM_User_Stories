@@ -16,9 +16,10 @@ function showMenu(){
     
 
 do {
-
-    let userInput = PromptSync('Enter A, B, C, D ');
-    console.log('\n')
+    
+    console.log('Enter A, B, C, D ' + '\n');
+    let userInput = PromptSync('');
+    
 
     switch(userInput){
         case 'A':
@@ -35,18 +36,20 @@ do {
             console.log('Here is the remainder of your balance $' + amount2);
             break;
         case 'C':
-            var amount3 = PromptSync('Enter Amount to deposit: \n');
-            atm.Deposit(amount3);
+            console.log('Enter Amount to deposit: \n');
+            var amountToDeposit = parseInt(PromptSync(''));
+            atm.Deposit(amountToDeposit);
             var amount3 = atm.Getbalance(amount3);
-            console.log('Here is the remainder of your balance $' + amount3);
+            console.log('Here is your new balance $' + amount3);
             break;
         case 'D':
+            option;
             console.log('==================================================');
             break;
         default:
             console.log('Error: invalid option. Please enter A, B, C, D')
             break;
         }
-    } while(userInput !== 'D');
+    } while(userInput != 'D');
     console.log('Thank you for banking with OCS Credit Union!');
 }
