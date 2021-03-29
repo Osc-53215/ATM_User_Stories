@@ -24,9 +24,9 @@ function validatePin(pin){
 
     if(pin == data.pin){
         console.log('Correct');
-            return true;  
+        return true;  
         }
-    else{
+    else if(pin !== data.pin){
         console.log('Incorrect');
         return false;
         }
