@@ -1,3 +1,5 @@
+'use strict'
+
 const atm = require('./atm');
 
 const PromptSync = require('prompt-sync')();
@@ -6,23 +8,25 @@ const PromptSync = require('prompt-sync')();
 showMenu();
 
 function showMenu(){
+    let counter = 0;
     let userName = PromptSync('Welcome, what is your name? ');
-    console.log('Hello, ' + userName + ' thank you for choosing OCS Credit Union!');
-    // console.log('Please enter your ID: ' );
-    // let validatedId = parseInt(PromptSync(''));
-    // atm.ValidatePin(validatedId);
-    console.log('What can we do for you today?');
-    console.log('\n A. Check your balance \n B. Make a withdrawl \n C. Make a deposit \n D. Exit \n \n');
+    console.log('\n')
+    console.log('Hello, ' + userName + ' thank you for choosing OCS Credit Union!\n');
+    let validatedId = parseInt(PromptSync('Please enter your ID: '));
+    atm.ValidatePin(validatedId);
+    console.log('What can we do for you today? \n');
+    console.log('A. Check your balance \n B. Make a withdrawl \n C. Make a deposit \n D. Exit \n \n');
     
 
 do {
     
     console.log('Enter A, B, C, D ' + '\n');
-    let userInput = PromptSync('');
-    
+    let userInput1 = PromptSync('');
+    let userInput = userInput1.toUpperCase();
 
     switch(userInput){
         case 'A':
+
             console.log('==================================================');
             var amount1 = atm.Getbalance(amount1);
             console.log('Here is your balance $' + amount1);
@@ -43,13 +47,13 @@ do {
             console.log('Here is your new balance $' + amount3);
             break;
         case 'D':
-            option;
             console.log('==================================================');
-            break;
+            console.log('Thank you for banking with OCS Credit Union!');
+            return ++counter;
         default:
             console.log('Error: invalid option. Please enter A, B, C, D')
             break;
         }
-    } while(userInput != 'D');
-    console.log('Thank you for banking with OCS Credit Union!');
+    } while(counter = 1);
+    
 }

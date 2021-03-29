@@ -19,14 +19,16 @@ function deposit(amount){
     }
 };
 
+
 function validatePin(pin){
-        if(pin == data.pin){
-            console.log('Correct');
-            return true;
+
+    if(pin == data.pin){
+        console.log('Correct');
+            return true;  
         }
-        else{
-            console.log('Incorrect');
-            return false;
+    else{
+        console.log('Incorrect');
+        return false;
         }
 };
 
